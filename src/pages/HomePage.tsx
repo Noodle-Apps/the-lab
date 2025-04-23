@@ -19,6 +19,34 @@ interface FeaturedItemProps {
   category: string;
 }
 
+const scale = [
+  {
+    name: "Dormant",
+    bg: "bg-gray-600",
+    tooltip: "This is a dormant project that I haven't worked on in a while."
+  },
+  {
+    name: "Simmering",
+    bg: "bg-yellow-600",
+    tooltip: "This project is in the works but not actively being worked on."
+  },
+  {
+    name: "Boiling",
+    bg: "bg-orange-600",
+    tooltip: "This project is actively being worked on."
+  },
+  {
+    name: "Overdrive",
+    bg: "bg-red-600",
+    tooltip: "This project has my full attention and is in high gear."
+  },
+  {
+    name: "Complete",
+    bg: "bg-green-600",
+    tooltip: "This project is complete and no longer being worked on."
+  },
+]
+
 function FeaturedItem({ title, description, icon, link, category }: FeaturedItemProps) {
   return (
     <Card className="overflow-hidden transition-transform hover:scale-[1.02]">
@@ -48,20 +76,37 @@ function FeaturedItem({ title, description, icon, link, category }: FeaturedItem
 export function HomePage() {
   return (
     <div className="container py-12 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl">The Lab</h1>
+      <div className="max-w-3xl mx-auto text-center space-y-4 mb-12 flex flex-col items-center">
+        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl px-5 py-3 border-4 border-solid border-black w-fit">The Lab</h1>
         <p className="text-xl text-muted-foreground">
-          A place for all my in-progress creative work across multiple mediums.
+          A place for all my creative work across multiple mediums.
         </p>
+      </div>
+
+      <div className="flex flex-col items-center justify-center mb-5">
+        <h1 className="text-2xl font-bold">The Scale</h1>
+        <p className="text-lg text-muted-foreground text-center">As I move so frequently from one project to another, I've decided to embrace the chaos. <br/> In order to track that... we have the scale:</p>
+      </div>
+
+      <div className="flex gap-3 justify-center mb-12">
+        {scale.map((s, i) => (
+          <span
+            key={i}
+            title={scale[i].tooltip}
+            className={`${scale[i].bg} text-white px-3 py-1 font-bold uppercase text-sm mondrian-border cursor-pointer`}
+          >
+            {scale[i].name}
+          </span>
+        ))}
       </div>
 
       <div className="max-w-5xl mx-auto mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FeaturedItem 
-            title="My Novel Draft" 
+            title="My Novel Test" 
             description="The first few chapters of my upcoming sci-fi novel." 
             icon={<FileText size={16} />} 
-            link="/writing/novel-draft" 
+            link="/writing/test_doc" 
             category="Writing"
           />
           <FeaturedItem 
