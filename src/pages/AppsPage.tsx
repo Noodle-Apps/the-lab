@@ -1,4 +1,3 @@
-
 import React from "react";
 import { AppWindow, Github, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -53,14 +52,13 @@ const appProjects: AppProject[] = [
 export function AppsPage() {
   return (
     <div className="container py-12 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <AppWindow className="text-page-apps" />
+      <div className="mb-16">
+        <h1 className="text-[5rem] font-display font-black tracking-tight mb-6 leading-none">
           <span className="bg-page-apps text-white px-4 py-2 inline-block mondrian-border transform -rotate-2">
             Apps
           </span>
         </h1>
-        <p className="text-xl text-muted-foreground">
+        <p className="text-2xl text-muted-foreground font-display ml-4">
           Web applications and coding projects in development.
         </p>
       </div>

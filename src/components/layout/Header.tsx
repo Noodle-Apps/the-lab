@@ -14,6 +14,13 @@ export function Header() {
     return 'bg-primary'; // Default/Writing color
   };
 
+  const getHoverColor = (path: string) => {
+    if (path === 'photography') return 'hover:bg-page-photography';
+    if (path === 'videos') return 'hover:bg-page-videos';
+    if (path === 'apps') return 'hover:bg-page-apps';
+    return 'hover:bg-primary';
+  };
+
   return (
     <header className="w-full border-b-[3px] border-black bg-white">
       <div className="container flex h-20 items-center justify-between px-4 sm:px-6">
@@ -32,7 +39,10 @@ export function Header() {
                 <NavigationMenuLink asChild>
                   <Link 
                     to={`/${item.toLowerCase()}`} 
-                    className="text-lg font-bold hover:bg-primary hover:text-white px-3 py-2 transition-colors"
+                    className={cn(
+                      "text-lg font-bold hover:text-white px-3 py-2 transition-colors",
+                      getHoverColor(item.toLowerCase())
+                    )}
                   >
                     {item}
                   </Link>

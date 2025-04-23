@@ -1,7 +1,5 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
-import { Camera } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface PhotoCollection {
@@ -51,14 +49,13 @@ const photoCollections: PhotoCollection[] = [
 export function PhotographyPage() {
   return (
     <div className="container py-12 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <Camera className="text-page-photography" />
+      <div className="mb-16">
+        <h1 className="text-[5rem] font-display font-black tracking-tight mb-6 leading-none">
           <span className="bg-page-photography text-white px-4 py-2 inline-block mondrian-border transform -rotate-2">
             Photography
           </span>
         </h1>
-        <p className="text-xl text-muted-foreground">
+        <p className="text-2xl text-muted-foreground font-display ml-4">
           Collections of photos from various projects and shoots.
         </p>
       </div>
