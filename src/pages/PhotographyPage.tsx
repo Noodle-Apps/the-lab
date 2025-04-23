@@ -53,8 +53,10 @@ export function PhotographyPage() {
     <div className="container py-12 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
         <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <Camera className="text-primary" />
-          Photography
+          <Camera className="text-page-photography" />
+          <span className="bg-page-photography text-white px-4 py-2 inline-block mondrian-border transform -rotate-2">
+            Photography
+          </span>
         </h1>
         <p className="text-xl text-muted-foreground">
           Collections of photos from various projects and shoots.
@@ -85,7 +87,7 @@ export function PhotographyPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Link to={`/photography/${collection.id}`} className="text-primary font-medium hover:underline">
+              <Link to={`/photography/${collection.id}`} className="text-page-photography font-medium hover:underline">
                 View Collection →
               </Link>
             </CardFooter>

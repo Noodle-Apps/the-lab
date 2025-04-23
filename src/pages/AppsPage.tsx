@@ -55,8 +55,10 @@ export function AppsPage() {
     <div className="container py-12 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
         <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <AppWindow className="text-primary" />
-          Apps
+          <AppWindow className="text-page-apps" />
+          <span className="bg-page-apps text-white px-4 py-2 inline-block mondrian-border transform -rotate-2">
+            Apps
+          </span>
         </h1>
         <p className="text-xl text-muted-foreground">
           Web applications and coding projects in development.
@@ -91,7 +93,7 @@ export function AppsPage() {
                 href={app.githubUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                className="text-page-apps font-medium hover:underline inline-flex items-center gap-1"
               >
                 <Github size={16} />
                 GitHub Repo
@@ -101,7 +103,7 @@ export function AppsPage() {
                   href={app.liveUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                  className="text-page-apps font-medium hover:underline inline-flex items-center gap-1"
                 >
                   <ExternalLink size={16} />
                   Live Demo
