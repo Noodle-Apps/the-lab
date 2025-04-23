@@ -10,6 +10,7 @@ import {
   CardTitle 
 } from "@/components/ui/card";
 import { FileText, Camera, Video, AppWindow } from "lucide-react";
+import { ScaleBadge, scaleMap, ScaleType } from "@/components/ui/scale-badge";
 
 interface FeaturedItemProps {
   title: string;
@@ -59,10 +60,7 @@ function FeaturedItem({ title, description, icon, link, category }: FeaturedItem
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400">
-          {/* Placeholder for featured content preview */}
-          Preview
-        </div>
+
       </CardContent>
       <CardFooter className="pt-4">
         <Link to={link} className="text-primary font-medium hover:underline">
@@ -77,7 +75,7 @@ export function HomePage() {
   return (
     <div className="container py-12 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-12 flex flex-col items-center">
-        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl px-5 py-3 border-4 border-solid border-black w-fit">The Lab</h1>
+        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl px-3 border-4 border-solid border-black w-fit">The Lab</h1>
         <p className="text-xl text-muted-foreground">
           A place for all my creative work across multiple mediums.
         </p>
@@ -89,46 +87,27 @@ export function HomePage() {
       </div>
 
       <div className="flex gap-3 justify-center mb-12">
-        {scale.map((s, i) => (
-          <span
-            key={i}
-            title={scale[i].tooltip}
-            className={`${scale[i].bg} text-white px-3 py-1 font-bold uppercase text-sm mondrian-border cursor-pointer`}
-          >
-            {scale[i].name}
-          </span>
+        {Object.keys(scaleMap).map((type) => (
+          <ScaleBadge key={type} type={type as ScaleType} />
         ))}
       </div>
 
       <div className="max-w-5xl mx-auto mb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FeaturedItem 
-            title="My Novel Test" 
-            description="The first few chapters of my upcoming sci-fi novel." 
+            title="Duskfall" 
+            description= "When a mage kills the Queen of Veneratie, a city-wide hunt begins that soon unveils a sinister plot" 
             icon={<FileText size={16} />} 
-            link="/writing/test_doc" 
+            link="/writing/duskfall" 
             category="Writing"
           />
+
           <FeaturedItem 
-            title="Beach Sunset Collection" 
-            description="A series of photographs capturing the perfect sunset." 
+            title="Lost In Grey" 
+            description= "An urban photoshoot in Cardiff with @heartsandcraftscosplay" 
             icon={<Camera size={16} />} 
-            link="/photography/beach-sunset" 
+            link="/photography/street" 
             category="Photography"
-          />
-          <FeaturedItem 
-            title="Short Film: 'Echoes'" 
-            description="My latest short film exploring memory and loss." 
-            icon={<Video size={16} />} 
-            link="/videos/echoes" 
-            category="Videos"
-          />
-          <FeaturedItem 
-            title="Weather Dashboard App" 
-            description="A simple weather app built with React and OpenWeather API." 
-            icon={<AppWindow size={16} />} 
-            link="/apps/weather-dashboard" 
-            category="Apps"
           />
         </div>
       </div>

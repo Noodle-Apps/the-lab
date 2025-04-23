@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import { HomePage } from "./pages/HomePage";
 import { WritingPage } from "./pages/WritingPage";
 import { PhotographyPage } from "./pages/PhotographyPage";
+import { PhotographyCollectionPage } from "./pages/PhotographyCollectionPage";
 import { VideosPage } from "./pages/VideosPage";
 import { AppsPage } from "./pages/AppsPage";
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/writing" element={<WritingPage />} />
             <Route path="/writing/:id" element={<WritingArticlePage />} />
             <Route path="/photography" element={<PhotographyPage />} />
+            <Route path="/photography/:id" element={<PhotographyCollectionPage />} />
             <Route path="/videos" element={<VideosPage />} />
             <Route path="/apps" element={<AppsPage />} />
           </Route>

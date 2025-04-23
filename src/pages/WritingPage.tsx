@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import fm from "front-matter";
+import { ScaleBadge, scaleMap, ScaleType } from "@/components/ui/scale-badge";
 
 type WritingItem = {
   id: string;
@@ -10,7 +11,7 @@ type WritingItem = {
   description: string;
   date: string;
   type: "article" | "story" | "novel";
-  scale: string;
+  scale: "Dormant" | "Simmering" | "Boiling" | "Overdrive" | "Complete";
 };
 
 export function WritingPage() {
@@ -80,9 +81,7 @@ export function WritingPage() {
                 <span className="bg-primary text-white px-3 py-1 font-bold uppercase text-sm mondrian-border">
                   {item.type}
                 </span>
-                <span className="bg-white text-primary px-3 py-1 font-bold uppercase text-sm mondrian-border">
-                  {item.scale}
-                </span>
+                <ScaleBadge key={item.scale} type={item.scale as ScaleType} />
               </div>
             </div>
             <p className="text-lg mb-6">{item.description}</p>
