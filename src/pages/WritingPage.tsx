@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { FileText } from "lucide-react";
@@ -44,10 +45,10 @@ const writingItems: WritingItem[] = [
 
 export function WritingPage() {
   return (
-    <div className="container py-12 px-4 sm:px-6">
+    <div className="container py-12 px-4 sm:px-6 bg-page-writing/10">
       <div className="mb-16">
         <h1 className="text-[5rem] font-display font-black tracking-tight mb-6 leading-none">
-          <span className="bg-primary text-white px-4 py-2 inline-block mondrian-border transform -rotate-2">
+          <span className="bg-page-writing text-page-writing-foreground px-4 py-2 inline-block mondrian-border transform -rotate-2">
             Writing
           </span>
         </h1>
@@ -60,7 +61,7 @@ export function WritingPage() {
         {writingItems.map((item, index) => (
           <Card 
             key={item.id} 
-            className={`mondrian-border bg-white p-6 hover:shadow-xl transition-shadow
+            className={`mondrian-border bg-white hover:shadow-xl transition-shadow
               ${index % 3 === 0 ? 'md:col-span-2' : ''}`}
           >
             <div className="flex justify-between items-start mb-4">
@@ -80,7 +81,7 @@ export function WritingPage() {
               </span>
               <Link 
                 to={`/writing/${item.id}`} 
-                className="bg-black text-white px-4 py-2 font-bold hover:bg-primary transition-colors mondrian-border"
+                className="bg-page-writing text-page-writing-foreground px-4 py-2 font-bold hover:opacity-90 transition-opacity mondrian-border"
               >
                 Read More →
               </Link>

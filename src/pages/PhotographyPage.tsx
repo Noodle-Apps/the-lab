@@ -50,10 +50,10 @@ const photoCollections: PhotoCollection[] = [
 
 export function PhotographyPage() {
   return (
-    <div className="container py-12 px-4 sm:px-6">
+    <div className="container py-12 px-4 sm:px-6 bg-page-photography/10">
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
         <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <Camera className="text-primary" />
+          <Camera className="text-page-photography" />
           Photography
         </h1>
         <p className="text-xl text-muted-foreground">
@@ -85,7 +85,10 @@ export function PhotographyPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Link to={`/photography/${collection.id}`} className="text-primary font-medium hover:underline">
+              <Link 
+                to={`/photography/${collection.id}`} 
+                className="bg-page-photography text-page-photography-foreground px-4 py-2 font-bold hover:opacity-90 transition-opacity mondrian-border"
+              >
                 View Collection →
               </Link>
             </CardFooter>
