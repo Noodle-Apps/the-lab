@@ -11,18 +11,19 @@ import {
 } from "@/components/ui/card";
 import { FileText, Camera, Video, AppWindow } from "lucide-react";
 
-function FeaturedItem({ title, description, icon, link, category, pageTheme }: { 
-  title: string, 
-  description: string, 
-  icon: React.ReactNode, 
-  link: string, 
-  category: string,
-  pageTheme: string
-}) {
+interface FeaturedItemProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  link: string;
+  category: string;
+}
+
+function FeaturedItem({ title, description, icon, link, category }: FeaturedItemProps) {
   return (
     <Card className="overflow-hidden transition-transform hover:scale-[1.02]">
       <CardHeader>
-        <div className={`flex items-center gap-2 text-sm font-medium text-${pageTheme} mb-2`}>
+        <div className="flex items-center gap-2 text-sm font-medium text-primary mb-2">
           {icon}
           <span>{category}</span>
         </div>
@@ -31,14 +32,12 @@ function FeaturedItem({ title, description, icon, link, category, pageTheme }: {
       </CardHeader>
       <CardContent className="p-0">
         <div className="h-48 bg-gray-100 flex items-center justify-center text-gray-400">
+          {/* Placeholder for featured content preview */}
           Preview
         </div>
       </CardContent>
       <CardFooter className="pt-4">
-        <Link 
-          to={link} 
-          className={`bg-page-${pageTheme} text-page-${pageTheme}-foreground px-4 py-2 font-bold hover:opacity-90 transition-opacity mondrian-border`}
-        >
+        <Link to={link} className="text-primary font-medium hover:underline">
           View Project →
         </Link>
       </CardFooter>
@@ -64,7 +63,6 @@ export function HomePage() {
             icon={<FileText size={16} />} 
             link="/writing/novel-draft" 
             category="Writing"
-            pageTheme="writing"
           />
           <FeaturedItem 
             title="Beach Sunset Collection" 
@@ -72,7 +70,6 @@ export function HomePage() {
             icon={<Camera size={16} />} 
             link="/photography/beach-sunset" 
             category="Photography"
-            pageTheme="photography"
           />
           <FeaturedItem 
             title="Short Film: 'Echoes'" 
@@ -80,7 +77,6 @@ export function HomePage() {
             icon={<Video size={16} />} 
             link="/videos/echoes" 
             category="Videos"
-            pageTheme="videos"
           />
           <FeaturedItem 
             title="Weather Dashboard App" 
@@ -88,7 +84,6 @@ export function HomePage() {
             icon={<AppWindow size={16} />} 
             link="/apps/weather-dashboard" 
             category="Apps"
-            pageTheme="apps"
           />
         </div>
       </div>
@@ -96,52 +91,52 @@ export function HomePage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <FileText className="text-page-writing" />
+            <FileText className="text-primary" />
             <h2 className="text-xl font-bold font-display">Writing</h2>
           </div>
           <p className="text-muted-foreground">
             Articles, essays, and fiction writing projects in progress.
           </p>
-          <Link to="/writing" className="text-page-writing font-medium hover:underline block">
+          <Link to="/writing" className="text-primary font-medium hover:underline block">
             View all writing →
           </Link>
         </section>
 
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <Camera className="text-page-photography" />
+            <Camera className="text-primary" />
             <h2 className="text-xl font-bold font-display">Photography</h2>
           </div>
           <p className="text-muted-foreground">
             Collections of photos from various projects and shoots.
           </p>
-          <Link to="/photography" className="text-page-photography font-medium hover:underline block">
+          <Link to="/photography" className="text-primary font-medium hover:underline block">
             View all photography →
           </Link>
         </section>
 
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <Video className="text-page-videos" />
+            <Video className="text-primary" />
             <h2 className="text-xl font-bold font-display">Videos</h2>
           </div>
           <p className="text-muted-foreground">
             Short films, documentaries, and other video projects.
           </p>
-          <Link to="/videos" className="text-page-videos font-medium hover:underline block">
+          <Link to="/videos" className="text-primary font-medium hover:underline block">
             View all videos →
           </Link>
         </section>
 
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <AppWindow className="text-page-apps" />
+            <AppWindow className="text-primary" />
             <h2 className="text-xl font-bold font-display">Apps</h2>
           </div>
           <p className="text-muted-foreground">
             Web applications and coding projects in development.
           </p>
-          <Link to="/apps" className="text-page-apps font-medium hover:underline block">
+          <Link to="/apps" className="text-primary font-medium hover:underline block">
             View all apps →
           </Link>
         </section>

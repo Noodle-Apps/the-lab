@@ -50,10 +50,10 @@ const videoProjects: VideoProject[] = [
 
 export function VideosPage() {
   return (
-    <div className="container py-12 px-4 sm:px-6 bg-page-videos/10">
+    <div className="container py-12 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
         <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <Video className="text-page-videos" />
+          <Video className="text-primary" />
           Videos
         </h1>
         <p className="text-xl text-muted-foreground">
@@ -91,10 +91,7 @@ export function VideosPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Link 
-                to={`/videos/${video.id}`} 
-                className="bg-page-videos text-page-videos-foreground px-4 py-2 font-bold hover:opacity-90 transition-opacity mondrian-border"
-              >
+              <Link to={`/videos/${video.id}`} className="text-primary font-medium hover:underline">
                 Watch Video →
               </Link>
             </CardFooter>
