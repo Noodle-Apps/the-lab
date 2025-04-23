@@ -88,14 +88,38 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
+    
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+    --primary: 255 60% 60%;
+    --border: 0 0% 0%;
+  }
 
-@layer base {
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  h1 {
+    @apply font-display font-bold text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply font-display font-bold text-4xl leading-tight;
+  }
+}
+
+@layer utilities {
+  .mondrian-border {
+    @apply border-[3px] border-black;
+  }
+  
+  .mondrian-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
   }
 }

@@ -1,52 +1,31 @@
 
 import { Link } from "react-router-dom";
-import { 
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import React from "react";
 
 export function Header() {
   return (
-    <header className="w-full border-b bg-white">
-      <div className="container flex h-16 items-center px-4 sm:px-6">
-        <Link to="/" className="mr-6 flex items-center space-x-2">
-          <span className="text-2xl font-bold font-display">The Lab</span>
+    <header className="w-full border-b-[3px] border-black bg-white">
+      <div className="container flex h-20 items-center justify-between px-4 sm:px-6">
+        <Link to="/" className="flex items-center">
+          <span className="text-3xl font-black font-display bg-primary text-white px-4 py-2 mondrian-border transform hover:rotate-2 transition-transform">
+            The Lab
+          </span>
         </Link>
-        <NavigationMenu className="ml-auto">
-          <NavigationMenuList className="gap-1">
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/writing" className={cn(navigationMenuTriggerStyle(), "group")}>
-                  Writing
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/photography" className={cn(navigationMenuTriggerStyle(), "group")}>
-                  Photography
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/videos" className={cn(navigationMenuTriggerStyle(), "group")}>
-                  Videos
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/apps" className={cn(navigationMenuTriggerStyle(), "group")}>
-                  Apps
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+        <NavigationMenu>
+          <NavigationMenuList className="gap-4">
+            {["Writing", "Photography", "Videos", "Apps"].map((item) => (
+              <NavigationMenuItem key={item}>
+                <NavigationMenuLink asChild>
+                  <Link 
+                    to={`/${item.toLowerCase()}`} 
+                    className="text-lg font-bold hover:bg-primary hover:text-white px-3 py-2 transition-colors"
+                  >
+                    {item}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
       </div>

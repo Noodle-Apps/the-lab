@@ -1,8 +1,7 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { FileText } from "lucide-react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 interface WritingItem {
   id: string;
@@ -46,42 +45,46 @@ const writingItems: WritingItem[] = [
 export function WritingPage() {
   return (
     <div className="container py-12 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto text-center space-y-4 mb-12">
-        <h1 className="text-4xl font-bold font-display tracking-tight sm:text-5xl flex justify-center items-center gap-3">
-          <FileText className="text-primary" />
-          Writing
+      <div className="mb-16">
+        <h1 className="text-[5rem] font-display font-black tracking-tight mb-6 leading-none">
+          <span className="bg-primary text-white px-4 py-2 inline-block mondrian-border transform -rotate-2">
+            Writing
+          </span>
         </h1>
-        <p className="text-xl text-muted-foreground">
+        <p className="text-2xl text-muted-foreground font-display ml-4">
           Articles, essays, and fiction writing projects in progress.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {writingItems.map((item) => (
-          <Card key={item.id} className="overflow-hidden transition-transform hover:scale-[1.02]">
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <CardTitle>{item.title}</CardTitle>
-                <span className="text-xs text-muted-foreground bg-secondary px-2 py-1 rounded">
-                  {item.type.charAt(0).toUpperCase() + item.type.slice(1)}
-                </span>
-              </div>
-              <CardDescription>{item.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="text-sm text-muted-foreground">
-                Last updated: {new Date(item.date).toLocaleDateString('en-US', {
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+        {writingItems.map((item, index) => (
+          <Card 
+            key={item.id} 
+            className={`mondrian-border bg-white p-6 hover:shadow-xl transition-shadow
+              ${index % 3 === 0 ? 'md:col-span-2' : ''}`}
+          >
+            <div className="flex justify-between items-start mb-4">
+              <h2 className="text-3xl font-display font-bold">{item.title}</h2>
+              <span className="bg-primary text-white px-3 py-1 font-bold uppercase text-sm mondrian-border">
+                {item.type}
+              </span>
+            </div>
+            <p className="text-lg mb-6">{item.description}</p>
+            <div className="flex justify-between items-center">
+              <span className="text-muted-foreground">
+                {new Date(item.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
                 })}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Link to={`/writing/${item.id}`} className="text-primary font-medium hover:underline">
+              </span>
+              <Link 
+                to={`/writing/${item.id}`} 
+                className="bg-black text-white px-4 py-2 font-bold hover:bg-primary transition-colors mondrian-border"
+              >
                 Read More →
               </Link>
-            </CardFooter>
+            </div>
           </Card>
         ))}
       </div>
