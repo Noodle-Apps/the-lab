@@ -1,6 +1,6 @@
 ---
 title: "Portals'R'Us"
-description: "Paperwork, water coolers, commutes - the employees at Portals'R'Us have the same mundane lives the rest of us do, only theirs also contains magic, demons and all the bueracracy that comes with managing that"
+description: "Reports, water coolers, commutes - the employees at Portals'R'Us have the same mundane lives the rest of us do, only theirs also contains magic, demons and all the paperwork that comes with it"
 date: "2025-06-01"
 type: "short story"
 scale: "Simmering"
