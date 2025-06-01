@@ -26,7 +26,7 @@ export function PhotographyPage() {
           </span>
         </h1>
         <p className="text-2xl text-muted-foreground font-display ml-4">
-          Collections of photos from various projects and shoots.
+          Collections of photos from various projects and shoots. Want to see more? Check out @noodlesnapz on Instagram.
         </p>
       </div>
 
